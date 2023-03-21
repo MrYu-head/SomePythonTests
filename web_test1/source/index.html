@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebGetOracle</title>
+    <link rel="stylesheet" href="./index.less">
+    <script src="../node_modules/less/dist/less.min.js"></script>
+    <script src="./getOracle.js"></script>
+</head>
+<body>
+    <div class="back_box">
+        <form action="./test1.py" method="post" class="get_form" id="get_form">
+            <input type="text" class="eno_input_text" placeholder="请输入要查询的员工的员工号：">
+            <input type="submit" class="sel_submit" value="查询" onclick="send_post()">
+            <!-- 弹性盒子放数据 -->
+            <div class="sel_list_box">
+                <!-- 可伸缩ul列表 -->
+                <ul class="sel_list">
+                    <!-- <li>11</li> -->
+                </ul>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

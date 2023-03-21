@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet/less" href="./less_style/index.less">
+    <script src="../node_modules/less/dist/less.min.js"></script>
+    <script src="../node_modules/ajax/lib/ajax.js"></script>
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="./scripts/login_ver.js"></script>
+    <title>test1</title>
+</head>
+<body>
+    <div class="login_regist" id="login_regist">
+        <div class="container" id="container">
+            <div class="loginForm">
+                <div class="form_item_head">
+                    <p>登录</p>
+                    <p><a href="register.html">注册</a></p>
+                </div>
+                <div class="form_item">
+                    <span><img src="./imgs/phone_user_img.png" alt=""></span>
+                    <input type="text" id="username_text" name="username" placeholder="请输入用户名">
+                </div>
+                <div class="form_item">
+                    <span><img src="./imgs/password_lock.png" alt=""></span>
+                    <input type="password" id="passNum" name="password" placeholder="请输入密码">
+                </div>
+                <div class="form_item">
+                    <input type="submit" id="loginBtn" onclick="submit()" value="登录">
+                    <input type="reset" id="clearInput" value="重置">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

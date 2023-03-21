@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet/less" href="./less/add.less">
+    <script src="../node_modules/less/dist/less.min.js"></script>
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../node_modules/ajax/lib/ajax.js"></script>
+    <title>AddUser</title>
+</head>
+<body>
+    <div class="add">
+        <span><p class="add_explain">添加用户</p></span>
+        <span class="oneP"><p class="input_name">用户名：</p><input type="text" name="username" id="username"></span>
+        <span class="oneP"><p class="input_password">密码：</p><input type="password" name="password" id="password"></span>
+        <span class="oneP"><p class="input_age">年龄：</p><input type="number" name="age" id="age"></span>
+        <span class="oneP"><input type="submit" value="提交" onclick="add()"></span>
+    </div>
+    <!-- <div class="del">
+        <p><input type="text" class="del_explain" value="删除用户s"></p>
+        <p><input type="text" value="用户名" onfocus="this.blur"><input type="text" name="username" id="username"></p>
+        <p><input type="submit" value="提交" onclick="add()"></p>
+    </div> -->
+    <script type="text/javascript">
+        // 创建XML对象访问后端s
+        let xhr = new XMLHttpRequest()
+        let add = () => {
+            let inputs = document.querySelectorAll('.add input')  //add为后端路由
+            // 仍然是发送为json格式s
+            let addJson = {}
+            addJson.username = inputs[0].value
+            addJson.password = inputs[1].value
+            addJson.age = inputs[2].value
+            let urls = 'http://localhost:8090/addUser'
+            xhr.open('POST',urls,true)  //true表示是异步请求
+            // 将获取的文档数据转换为json格式
+            xhr.send(JSON.stringify(addJson))
+            xhr.onreadystatechange = () => {
+                try {
+                    if (xhr.readyState === 4){  //4为请求完成，响应已就绪
+                        if (xhr.readyState === 200){
+                            let res = xhr.responseText;
+                            isFirstReader = false
+                            alert(JSON.parse(res),msg)
+                            // select()用于选中文本框中所有文本
+                            select()
+                        }
+                    }                
+                } catch (error) {
+                    console.log(error);
+                    alert('获取状态码失败')
+
+                }
+            }
+        }
+
+    </script>
+</body>
+</html>

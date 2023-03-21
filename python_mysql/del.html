@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet/less" href="./less/add.less">
+    <script src="../node_modules/less/dist/less.min.js"></script>
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../node_modules/ajax/lib/ajax.js"></script>
+    <title>AddUser</title>
+</head>
+<body>
+    <div class="del">
+        <span><p class="add_explain">删除用户</p></span>
+        <span class="oneP"><p class="input_name">用户名：</p><input type="text" name="username" id="username"></span>
+        <span class="oneP"><p class="input_password">密码：</p><input type="password" name="password" id="password"></span>
+        <!-- <span class="oneP"><p class="input_age">年龄：</p><input type="number" name="age" id="age"></span> -->
+        <span class="oneP"><input type="submit" value="提交" onclick="del()"></span>
+    </div>
+    <script type="text/javascript">
+        // 1.创建XHR对象
+        let xhr = new XMLHttpRequest()
+        let del = () => {
+            let input_name = document.getElementById('username').value
+            let input_pwd = document.getElementById('password').value
+            // console.log(input_name);
+            // console.log(input_password);
+            // xhr.open('delete','http://localhost:8090/delUser?username=' + input_name + '&password=' + input_password,true)
+            let urls = "'http://localhost:8090/delUser?username='' + input_name + '&password='' + input_password"
+            xhr.open('POST',urls,true)
+            xhr.send()
+            xhr.onreadystatechange = () => {
+                try {
+                    if (xhr.readyState === 4){
+                        if (xhr.readyState === 200){
+                            let res = xhr.responseText
+                            isFirstRender = false
+                            alert(JSON.parse(res).msg)
+                            select()
+                        }
+                    }
+                } catch (error) {
+                    console.log('访问失败，请求状态为：',xhr.readyState)
+                    console.log(error)
+                    alert('获取状态码失败')
+                }
+            }
+        }
+
+    </script>
+</body>
+</html>

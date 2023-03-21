@@ -1,0 +1,63 @@
+@leftfloat:left;
+@rightfloat:right;
+@absoposi:absolute;
+@relaposi:relative;
+
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    position: @absoposi;
+    // width: 100%;
+    // height: 100%;
+    .add{
+        width: 300px;
+        height: 300px;
+        border: 1px;
+        border-radius: 10px;
+        margin: 100px 0 0 100px;
+        position: @relaposi;
+        float: @leftfloat;
+        background-color:azure;
+        .add_explain{
+            width: 100%;
+            height: 20%;
+            position: @relaposi;
+            text-align: center;
+            padding-top: 10%;
+            font-size: 2em;
+        }
+        .oneP{
+            width: 100%;
+            height: 10%;
+            position: @relaposi;
+            float: @leftfloat;
+            display: block;
+            p{
+                width: 30%;
+                height: 100%;
+                font-size: 1em;
+                float: @leftfloat;
+                margin-left: 10px;
+            }
+            input{
+                width: 50%;
+                height: 80%;
+                border-radius: 10px;
+                text-align: center;
+                float: @leftfloat;
+                display:block;
+            }
+            input[type='submit']{
+                width: 20%;
+                height: 80%;
+                margin: 0 auto;
+                // margin-left: 100px;
+                text-align: center;
+                font-size: 1em;
+                display: block;
+            }
+        }
+    }
+}
